@@ -3,12 +3,13 @@
 namespace App\Presenters;
 
 use App\Posts;
+use Kdyby\Doctrine\EntityManager;
 use Nette;
 use App\Model;
 use App\Article;
 
 
-class Homepage2Presenter extends BasePresenter
+class BlogPresenter extends BasePresenter
 {
 
 	/**
@@ -17,12 +18,24 @@ class Homepage2Presenter extends BasePresenter
 	 */
 	public $articles;
 
+
+	/**
+	 * @inject
+	 * @var EntityManager
+	 */
+	public $entityManager;
+
 	public function renderDefault()
 	{
 		$this->template->anyVariable = 'any value';
 
-		$dao = $this->articles;
-		$this->template->articles = $dao->getArticles()->findAll();
+//		$dao = $this->articles;
+		$this->template->articles = $this->articles->getArticles()->findAll();
+
+		$posts = $this->entityManager->getRepository(Posts::getClassName());
+		$this->template->posts = $posts->findAll();
+
+
 
 
 //		$post = new Posts();

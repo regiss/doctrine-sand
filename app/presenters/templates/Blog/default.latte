@@ -2,7 +2,7 @@
 
 {block content}
 <div id="banner">
-	<h1 n:block=title>Congratulations!</h1>
+	<h1 n:block=title>Doctrine sand!</h1>
 </div>
 
 <div id="content">
@@ -15,22 +15,28 @@
     {/foreach}
 
 
+	<br/>
+	<br/>
+	<br/>
+
+
+    {foreach $posts as $post}
+    <div class="post">
+        <div class="date">{$post->created_at|date:'F j, Y - h:i:s'}</div>
+
+        <h2>{$post->title}</h2>
+
+        <div>{$post->text}</div>
+        <hr>
+    </div>
+    {/foreach}
+
+
 </div>
 {/block}
 
 {block scripts}
 {include parent}
-<script src="http://jush.sourceforge.net/jush.js"></script>
-<script>
-	jush.create_links = false;
-	jush.highlight_tag('code');
-	$('code.jush').each(function(){ $(this).html($(this).html().replace(/\x7B[/$\w].*?\}/g, '<span class="jush-latte">$&</span>')) });
-
-	$('a[href^=#]').click(function(){
-		$('html,body').animate({ scrollTop: $($(this).attr('href')).show().offset().top - 5 }, 'fast');
-		return false;
-	});
-</script>
 {/block}
 
 
