@@ -4,7 +4,7 @@
 #
 parameters:
     first_parametr: 'this is my config'
-    second_parametr: 'this my 3rd parametr'
+    second_parametr: 'this my second parametr'
 
 php:
 	date.timezone: Europe/Prague
