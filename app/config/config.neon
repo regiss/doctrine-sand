@@ -3,7 +3,8 @@
 # http://nette.org/security-warning
 #
 parameters:
-
+    first_parametr: 'this is my config'
+    second_parametr: 'this my second parametr'
 
 php:
 	date.timezone: Europe/Prague

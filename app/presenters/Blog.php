@@ -35,7 +35,7 @@ class BlogPresenter extends BasePresenter
 		$posts = $this->entityManager->getRepository(Posts::getClassName());
 		$this->template->posts = $posts->findAll();
 
-
+		$this->template->myparametr = $this->context->parameters['first_parametr'];
 
 
 //		$post = new Posts();
