@@ -1,8 +1,0 @@
-#
-# WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
-# http://nette.org/security-warning
-#
-parameters:
-    first2_parametr: 'this is my config'
-    second2_parametr: 'this my second parametr'
-
