@@ -11,6 +11,7 @@ use App\Article;
 
 class BlogPresenter extends BasePresenter
 {
+	const refactoringCondition = 'ok';
 
 	/**
 	 * @inject
@@ -23,7 +24,7 @@ class BlogPresenter extends BasePresenter
 	 * @inject
 	 * @var EntityManager
 	 */
-	public $entityManager;
+	public $EntityManager;
 
 	public function renderDefault()
 	{
@@ -32,13 +33,14 @@ class BlogPresenter extends BasePresenter
 //		$dao = $this->articles;
 		$this->template->articles = $this->articles->getArticles()->findAll();
 
-		$posts = $this->entityManager->getRepository(Posts::getClassName());
+		$posts = $this->EntityManager->getRepository(Posts::getClassName());
 		$this->template->posts = $posts->findAll();
 
 		$this->template->myparametr = $this->context->parameters['first_parametr'];
 
+		$this->template->test = $this->doSomeRefactoring('Hello world from blog');
 
-//		$post = new Posts();
+		//		$post = new Posts();
 //		$post->title = 'New title';
 //		$post->text = 'New text New textNew text';
 //		$post->created_at = new \Nette\Utils\DateTime;
@@ -57,8 +59,13 @@ class BlogPresenter extends BasePresenter
 //		$dao->__set('title', 'test');
 
 
-
-
 	}
 
+	public function doSomeRefactoring($name){
+
+		if($name == '' . self::refactoringCondition . ''){
+
+	    echo $name;
+		}
+	}
 }
