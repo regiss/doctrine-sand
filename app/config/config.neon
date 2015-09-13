@@ -12,6 +12,7 @@ php:
 
 application:
 	errorPresenter: Error
+	catchExceptions: FALSE
 	mapping:
 		*: App\*Module\Presenters\*Presenter
 
